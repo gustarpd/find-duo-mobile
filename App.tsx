@@ -1,26 +1,34 @@
+import React from "react";
+import { StatusBar } from "react-native";
+import { GameCard } from "./src/components/gameCard";
 
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {
+  Inter_400Regular,
+  Inter_600SemiBold,
+  Inter_700Bold,
+  Inter_900Black,
+  useFonts,
+} from "@expo-google-fonts/inter";
+
+import { Home } from "./src/screens/Home";
+import { Loading } from "./src/components/Loading/Loading";
+import { Background } from "./src/components/background";
 
 export default function App() {
+  const [fontsLoade] = useFonts({
+    Inter_400Regular,
+    Inter_600SemiBold,
+    Inter_700Bold,
+    Inter_900Black,
+  });
   return (
-    <View style={styles.container}>
-      <Text>Hello word!</Text>
-      <Text style={styles.title}>Testando meu primeiro app em react native</Text>
-      <StatusBar style="auto" backgroundColor='red' />
-    </View>
+    <Background>
+      <StatusBar
+        barStyle={"light-content"}
+        backgroundColor="transparent"
+        translucent
+      />
+      {fontsLoade ? <Home /> : <Loading />}
+    </Background>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#000000',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-   color: '#FFF',
-  },
-});
