@@ -10,7 +10,7 @@ import {
   useFonts,
 } from "@expo-google-fonts/inter";
 
-import { Home } from "./src/screens/Home";
+import { Routes } from "./src/routes";
 import { Loading } from "./src/components/Loading/Loading";
 import { Background } from "./src/components/background";
 
@@ -28,7 +28,7 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      {fontsLoade ? <Home /> : <Loading />}
+      {fontsLoade ? <Routes /> : <Loading />}
     </Background>
   );
 }
